@@ -19,7 +19,9 @@ describe User do
   it { should respond_to(:country) }
   it { should respond_to(:zip) }
   it { should respond_to(:phno) }
-
+  
+  it { should respond_to(:authenticate) }
+  
   it { should be_valid }
 
   
@@ -138,6 +140,45 @@ describe User do
   describe "password confirmation when not matching" do
 
     before  { @user.password_confirmation = "invalid" }
+
+    it { should_not be_valid }
+
+  end
+
+  
+  describe "authenticate method" do
+
+    before  { @user.save }
+    let(:found_user) { User.find_by(username: @user.username) }
+
+    describe "with valid password" do
+
+      it { should eq found_user.authenticate(@user.password) }
+
+    end
+
+    describe "with invalid password" do
+
+      let(:user_with_invalid_password) { found_user.authenticate("invalid") }
+      
+      it { should_not eq user_with_invalid_password }
+      specify { expect(user_with_invalid_password).to be_false }
+
+    end
+
+  end
+
+  describe "password when short" do
+
+    before  { @user.password = @user.password_confirmation = "a" * 5 }
+
+    it { should_not be_valid }
+
+  end
+
+  describe "password when long" do
+  
+    before  { @user.password = @user.password_confirmation = "a" * 41 }
 
     it { should_not be_valid }
 
