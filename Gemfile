@@ -1,3 +1,4 @@
+source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
@@ -7,6 +8,8 @@ gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'therubyracer'
+gem 'calendar_date_select'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
