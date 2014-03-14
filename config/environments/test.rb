@@ -33,4 +33,7 @@ Mblizz::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Reduce the time to create password hash by using minimum cost
+  ActiveModel::SecurePassword.min_cost = true
 end
