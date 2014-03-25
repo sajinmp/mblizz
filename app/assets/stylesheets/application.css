@@ -12,5 +12,10 @@
  *= require_tree .
  */
 
-/* Header */
+/*  Error Explanation  */
 
+
+#error_explain  {
+  color: #f00;
+  font-size: 20px;
+}

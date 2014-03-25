@@ -9,6 +9,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'therubyracer'
 gem 'calendar_date_select'
+gem 'country_select'
 
 group :development, :test do
   gem 'sqlite3'

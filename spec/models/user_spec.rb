@@ -2,8 +2,9 @@ require 'spec_helper'
 
 describe User do
 
-  before  { @user = User.new(name: "Example User", username: "example", email: "user@example.com", password: "foobar", password_confirmation: "foobar", 
-                              dob: "23/06/1993", sex: "male", city: "thrissur", state: "kerala", country: "India", zip: "680308", phno: "9745165109" ) }
+  before  { @user = User.new(name: "Example User", username: "example", email: "user@example.com", 
+            password: "foobar", password_confirmation: "foobar", dob: "23/06/1993", sex: "male", 
+            city: "thrissur", state: "kerala", country: "India", zip: "680308", phno: "9745165109" ) }
   subject { @user }
 
   it { should respond_to(:name) }
@@ -63,6 +64,14 @@ describe User do
     
     it { should_not be_valid }
   
+  end
+
+  describe "username when short" do
+
+    before  { @user.username = "a" * 4 }
+
+    it { should_not be_valid }
+
   end
 
   describe "email when invalid" do

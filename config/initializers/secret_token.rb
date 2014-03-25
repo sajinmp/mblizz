@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Mblizz::Application.config.secret_key_base = '6a4622990ee7badbf8c0b32bb271d556eec35d6d0200050a4ad3306dc66dc8cdfcb0ddcad100b06256229d554d465ce7b3728ba9936250228a308edda1dae092'
+
+require 'secure_random'
+
+def secure_token
+  
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    File.read(token_file).chomp   # Use the present token
+  else
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+  end
+
+end
+
+MBlizz::Application.config.secret_key_base = secure_token

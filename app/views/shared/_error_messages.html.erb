@@ -1,0 +1,10 @@
+<div id = "error_explain">
+  <% if @user.errors.any? %>
+    The user couldn't be created due to <%= pluralize(@user.errors.count, "error") %>
+    <ul>
+      <% @user.errors.full_messages.each do |err| %>
+        <li> <%= err %> </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
