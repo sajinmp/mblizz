@@ -10,6 +10,7 @@ gem 'bootstrap-will_paginate'
 gem 'therubyracer'
 gem 'calendar_date_select'
 gem 'country_select'
+gem 'sprockets', '2.11.0'
 
 group :development, :test do
   gem 'sqlite3'

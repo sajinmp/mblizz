@@ -37,6 +37,14 @@ describe "Users" do
 
       end
 
+      describe "after submission" do
+
+        before  { click_button submit }
+
+        it { should have_content('error') }
+
+      end
+
     end
 
     describe "with valid info" do
@@ -59,6 +67,15 @@ describe "Users" do
       it "should create a user" do
 
         expect { click_button submit }.to change(User, :count).by(1)
+
+      end
+
+      describe "after saving user" do
+        
+        before  { click_button submit }
+        let(:user)  { User.find_by(email: "user@example.com") }
+        
+        it { should have_title(user.name) }
 
       end
 

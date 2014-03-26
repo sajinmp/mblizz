@@ -1,2 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class = "center hero-unit" id = "spanning_color">
+  <h1 id = "welcome">MBlizz</h1> 
+  <br>
+  <h2>Please click on the following link to Register</h2>
+  <%= link_to 'Register', signup_path, class: "btn btn-large btn-primary" %>
+  <br><br>
+  <h2>Already registered. Please click below to Log in</h2>
+  <%= link_to 'Sign in', signin_path, class: "btn btn-large btn-primary" %>
+</div>
