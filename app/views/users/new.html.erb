@@ -42,12 +42,12 @@
 
   <%= f.label :sex, class: "left" %>
   <br><br>
-  <%= radio_button_tag(:sex, "Male") %>
-  <%= label_tag(:sex, "Male") %>
-  <%= radio_button_tag(:sex, "Female") %>
-  <%= label_tag(:sex, "Female") %>
-  <%= radio_button_tag(:sex, nil) %>
-  <%= label_tag(:sex, "Secret") %>
+  <%= f.radio_button :sex, "Male", id: "Male" %>
+  <%= f.label :sex, "Male" %>
+  <%= f.radio_button :sex, "Female", id: "Female" %>
+  <%= f.label :sex, "Female" %>
+  <%= f.radio_button :sex, "Secret", id: "Secret", checked: true %>
+  <%= f.label :sex, "Secret" %>
 
   <br>
 

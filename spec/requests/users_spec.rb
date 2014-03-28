@@ -56,6 +56,7 @@ describe "Users" do
         fill_in "Email", with: "user@example.com"
         fill_in "Password", with: "foobar"
         fill_in "Password confirmation", with: "foobar"
+        choose('Male')
         fill_in "City", with: "Thrissur"
         fill_in "State", with: "Kerala"
         fill_in "Country", with: "India"

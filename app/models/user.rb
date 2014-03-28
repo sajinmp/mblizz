@@ -7,5 +7,6 @@ class User < ActiveRecord::Base
   validates :username, presence: true, length: { within: 5..20 }, uniqueness: { case_sensitive: false }
   validates :email, presence: true, format: { with: valid_email_exp }, uniqueness: { case_sensitive: false }
   validates :password, length: { within: 6..40 }
+  validates :sex, presence: true
 
 end

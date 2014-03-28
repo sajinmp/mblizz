@@ -167,3 +167,37 @@ label {
   color: #927655;
   text-align: center;
 }
+
+
+
+/*  User profile sidebar  */
+
+
+
+aside section {
+  padding: 10px;
+  border-top: 1px solid #999;
+}
+
+aside section:first-child {
+  border: 0;
+  padding-top: 0;
+}
+
+aside section span  {
+  display: block;
+  margin-bottom: 5px;
+  line-height: 1;
+}
+
+aside section h1  {
+  font-size: 1.5em;
+  text-align: left;
+  letter-spacing: -1;
+  margin: 0 0 3px 0;
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}

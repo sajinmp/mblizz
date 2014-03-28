@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
 
   before  { @user = User.new(name: "Example User", username: "example", email: "user@example.com", 
-            password: "foobar", password_confirmation: "foobar", dob: "23/06/1993", sex: "male", 
+            password: "foobar", password_confirmation: "foobar", dob: "23/06/1993", sex: "Male", 
             city: "thrissur", state: "kerala", country: "India", zip: "680308", phno: "9745165109" ) }
   subject { @user }
 
@@ -46,6 +46,14 @@ describe User do
   
     before  { @user.email = " " }
     
+    it { should_not be_valid }
+
+  end
+
+  describe "sex when not selected" do
+
+    before  { @user.sex = " " }
+
     it { should_not be_valid }
 
   end

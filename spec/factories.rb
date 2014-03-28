@@ -5,5 +5,6 @@ FactoryGirl.define do
     email                   "sajinmp@mania.com"
     password                "password"
     password_confirmation   "password"
+    sex                     "Male"
   end
 end  
