@@ -205,3 +205,14 @@ aside section h1  {
   float: left;
   margin-right: 10px;
 }
+
+
+
+/*  Flash Notice  */
+
+
+
+.alert-notice {
+  font-size: 18px;
+  @include alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
+}

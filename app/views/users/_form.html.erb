@@ -1,0 +1,79 @@
+<%= render 'shared/error_messages' %>
+
+<%= f.label :name, "Name", class: "left" %>
+<br><br>
+<%= f.text_field :name, class: "text-field" %>
+
+<br>
+
+<%= f.label :username, class: "right" %> 
+<br><br>
+<%= f.text_field :username, class: "text-field" %> 
+
+<br>
+
+<%= f.label :email, class: "left" %> 
+<br><br>
+<%= f.text_field :email, class: "text-field" %>
+ 
+<br>
+
+<%= f.label :dob, "Date of birth", class: "right" %>
+<br><br>
+<%= f.date_select :dob, start_year: Time.now.year - 100, end_year: Time.now.year - 10 %>
+
+<br>
+
+<%= f.label :password, class: "left" %> 
+<br><br>
+<%= f.password_field :password, class: "text-field" %>
+
+<br>
+
+<%= f.label :password_confirmation, class: "right", id: "password_confirm" %> 
+<br><br>
+<%= f.password_field :password_confirmation, class: "text-field" %>
+
+<br>
+
+<%= f.label :sex, class: "left" %>
+<br><br>
+<%= f.radio_button :sex, "Male", id: "Male" %>
+<%= f.label :sex, "Male" %>
+<%= f.radio_button :sex, "Female", id: "Female" %>
+<%= f.label :sex, "Female" %>
+<%= f.radio_button :sex, "Secret", id: "Secret", checked: true %>
+<%= f.label :sex, "Secret" %>
+
+<br>
+
+<%= f.label :city, class: "right" %> 
+<br><br>
+<%= f.text_field :city, class: "text-field" %>
+
+<br>
+
+<%= f.label :state, class: "left", id: "state" %> 
+<br><br>
+<%= f.text_field :state, class: "text-field" %>
+
+<br>
+
+<%= f.label :country, class: "right", id: "country" %> 
+<br><br>
+<%= f.text_field :country, class: "text-field" %>
+
+<br>
+
+<%= f.label :zip, "Zip code", class: "left", id: "zip" %> 
+<br><br>
+<%= f.text_field :zip, class: "text-field" %>
+
+<br>
+
+<%= f.label :phno, "Phone number", class: "right", id: "phno" %>
+<br><br>
+<%= f.text_field :phno, class: "text-field" %>
+
+<br>
+

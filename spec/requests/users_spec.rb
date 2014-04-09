@@ -86,4 +86,58 @@ describe "Users" do
 
   end
 
+  describe "edit" do
+
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      sign_in(user)
+      visit edit_user_path(user)
+    end
+
+    describe "page" do
+
+      it { should have_content("Update your profile") }
+      it { should have_title("Edit profile") }
+      it { should have_link("Change", href: "http://gravatar.com/emails") }
+
+    end
+
+    describe "with invalid info" do
+
+      before  { click_button "Update changes" }
+
+      it { should have_content("error") }
+
+    end
+
+    describe "with valid info" do
+      
+      let(:new_name) { "New Name" }
+      let(:new_email) { "new@example.com" }
+      before do
+
+        fill_in "Name", with: new_name
+        fill_in "Username", with: user.username
+        fill_in "Email", with: new_email
+        fill_in "Password", with: user.password
+        fill_in "Password confirmation", with: user.password
+        choose('Male')
+        fill_in "City", with: user.city
+        fill_in "State", with: user.state
+        fill_in "Country", with: user.country
+        fill_in "Zip code", with: user.zip
+        fill_in "Phone number", with: user.phno
+        click_button "Update changes"
+
+      end
+
+      it { should have_title(new_name) }
+      it { should have_selector('div.alert.alert-success') }
+      specify { expect(user.reload.name).to eq new_name }
+      specify { expect(user.reload.email).to eq new_email }
+          
+    end
+
+  end
+
 end
