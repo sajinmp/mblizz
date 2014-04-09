@@ -76,7 +76,9 @@ describe "Users" do
         before  { click_button submit }
         let(:user)  { User.find_by(email: "user@example.com") }
         
+        it { should have_link("Sign out") }
         it { should have_title(user.name) }
+        it { should have_selector('div.alert.alert-success') }
 
       end
 
