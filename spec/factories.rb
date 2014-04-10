@@ -6,5 +6,8 @@ FactoryGirl.define do
     password                "password"
     password_confirmation   "password"
     sex                     "Male"
+    factory :admin do
+      admin true
+    end
   end
 end  

@@ -8,8 +8,6 @@ describe "Users" do
 
     before(:each) do
       sign_in FactoryGirl.create(:user)
-      FactoryGirl.create(:user, name: "Ajil", username: "ajilr", email: "ajil@example.com")
-      FactoryGirl.create(:user, name: "Sams", username: "samsraj", email: "sams@example.com")
       visit users_path
     end
 
@@ -28,6 +26,35 @@ describe "Users" do
         User.paginate(page: 1).each do |user|
           expect(page).to have_selector('li', text: user.name)
         end
+
+      end
+
+    end
+
+    describe "delete links" do
+
+      it { should_not have_link('Delete') }
+
+      describe "as admin user" do
+
+        let(:admin) { FactoryGirl.create(:admin) }
+
+        before do
+          sign_in admin
+          visit users_path
+        end
+        
+        it { should have_link('Delete', href: user_path(User.first)) }
+
+        it "should be able to delete user" do
+
+          expect do
+            click_link('Delete', match: :first)
+          end.to change(User, :count).by(-1)
+
+        end
+        
+        it { should_not have_link('Delete', href: users_path(admin)) }
 
       end
 
