@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   
   valid_email_exp = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   validates :name, presence: true, length: { maximum: 50 }
-  validates :username, presence: true, length: { within: 5..20 }, uniqueness: { case_sensitive: false }
+  validates :username, presence: true, length: { within: 4..20 }, uniqueness: { case_sensitive: false }
   validates :email, presence: true, format: { with: valid_email_exp }, uniqueness: { case_sensitive: false }
   validates :password, length: { within: 6..40 }
   validates :sex, presence: true

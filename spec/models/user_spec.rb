@@ -77,7 +77,7 @@ describe User do
 
   describe "username when short" do
 
-    before  { @user.username = "a" * 4 }
+    before  { @user.username = "a" * 3 }
 
     it { should_not be_valid }
 
