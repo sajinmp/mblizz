@@ -1,8 +1,8 @@
 <div id = "error_explain">
-  <% if @user.errors.any? %>
-    <div class = "alert alert-danger">The user couldn't be created due to <%= pluralize(@user.errors.count, "error") %></div>
+  <% if object.errors.any? %>
+    <div class = "alert alert-danger">This form has  <%= pluralize(object.errors.count, "error") %></div>
     <ul>
-      <% @user.errors.full_messages.each do |err| %>
+      <% object.errors.full_messages.each do |err| %>
         <li> <%= err %> </li>
       <% end %>
     </ul>

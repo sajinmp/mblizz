@@ -1,10 +1,23 @@
-<% provide(:title, "MBlizz") %>
-<div class = "center hero-unit" id = "spanning_color">
-  <h1 id = "welcome">MBlizz</h1> 
-  <br>
-  <h2>Please click on the following link to Register</h2>
-  <%= link_to 'Register', signup_path, class: "btn btn-large btn-primary" %>
-  <br><br>
-  <h2>Already registered. Please click below to Log in</h2>
-  <%= link_to 'Sign in', signin_path, class: "btn btn-large btn-primary" %>
-</div>
+<% provide(:title, 'MBlizz') %>
+<% if signed_in? %>
+  <div class = "row">
+    <aside class = "span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+  </div>
+<% else %>
+  <div class = "center hero-unit" id = "spanning_color">
+    <h1 id = "welcome">MBlizz</h1> 
+    <br>
+    <h2>Please click on the following link to Register</h2>
+    <%= link_to 'Register', signup_path, class: "btn btn-large btn-primary" %>
+    <br><br>
+    <h2>Already registered. Please click below to Log in</h2>
+    <%= link_to 'Sign in', signin_path, class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>

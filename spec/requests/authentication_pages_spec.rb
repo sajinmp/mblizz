@@ -131,6 +131,24 @@ describe "Authentication" do
 
       end
 
+    describe "in the microposts controller" do
+
+      describe "creating a microposts" do
+
+        before  { post microposts_path }
+        specify { expect(response).to redirect_to(signin_path) }
+
+      end
+
+      describe "deleting a micropost" do
+
+        before  { delete micropost_path(FactoryGirl.create(:micropost)) }
+        specify { expect(response).to redirect_to(signin_path) }
+
+      end
+
+    end
+
     end
 
     describe "as wrong user" do
