@@ -10,7 +10,27 @@ describe "Pages" do
       expect(page).to have_title("MBlizz")
     
     end
-  
+
+    describe "for signed in user" do
+
+      let(:user) { FactoryGirl.create(:user) }
+      before do
+        FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
+        FactoryGirl.create(:micropost, user: user, content: "Dolor sit amet")
+        signin_user
+        visit root_path
+      end
+
+      it "should render user feed" do
+
+        user.feed.each do |item|
+          expect(page).to have_selector("li##{item.id}", text: item.content)
+        end
+
+      end
+
+    end
+
   end
 
 
