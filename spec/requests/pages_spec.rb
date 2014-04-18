@@ -17,7 +17,7 @@ describe "Pages" do
       before do
         FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
         FactoryGirl.create(:micropost, user: user, content: "Dolor sit amet")
-        signin_user
+        sign_in user
         visit root_path
       end
 

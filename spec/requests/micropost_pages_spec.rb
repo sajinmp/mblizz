@@ -31,11 +31,29 @@ describe "Micropost" do
 
     describe "with valid info" do
 
-      before  { fill_in 'micropost_content', with: 'Lorem ipsum' }
+      before  { fill_in 'micropost_text', with: 'Lorem ipsum' }
       
       it "should create a post" do
 
         expect { click_button 'Post' }.to change(Micropost, :count).by(1)
+
+      end
+
+    end
+
+  end
+
+  describe "destroying" do
+
+    before  { FactoryGirl.create(:micropost, user: user) }
+    
+    describe "as correct user" do
+
+      before  { visit root_path }
+
+      it "should delete a micropost" do
+
+        expect { click_link 'Delete' }.to change(Micropost, :count).by(-1)
 
       end
 
