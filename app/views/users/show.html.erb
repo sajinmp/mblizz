@@ -10,9 +10,13 @@
         <%= link_to "Let me post already", root_path %>
       </span>
     </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
   </aside>
 
   <div class = "span8" id = "micros">
+    <%= render 'follow_form' if signed_in? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol class = "microposts">

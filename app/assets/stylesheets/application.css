@@ -12,8 +12,10 @@
  *= require_tree .
  */
 
-/*  Error Explanation  */
 
+#leftfloat  {
+  float: left;
+}
 
 #error_explain  {
   color: #f00;

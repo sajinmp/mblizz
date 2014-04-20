@@ -129,25 +129,52 @@ describe "Authentication" do
 
         end
 
+        describe "visiting follower page" do
+
+          before  { visit followers_user_path(user) }
+
+          it { should have_title('MBlizz') }
+
+        end
+
+        describe "visiting following page" do
+
+          before  { visit following_user_path(user) }
+
+          it { should have_title('MBlizz') }
+
+        end
+
       end
 
-    describe "in the microposts controller" do
+      describe "in the microposts controller" do
 
-      describe "creating a microposts" do
+        describe "creating a microposts" do
 
-        before  { post microposts_path }
-        specify { expect(response).to redirect_to(signin_path) }
+          before  { post microposts_path }
+          specify { expect(response).to redirect_to(signin_path) }
+
+        end
+
+        describe "deleting a micropost" do
+
+          before  { delete micropost_path(FactoryGirl.create(:micropost)) }
+          specify { expect(response).to redirect_to(signin_path) }
+
+        end
 
       end
 
-      describe "deleting a micropost" do
+      describe "in the relationships controller" do
 
-        before  { delete micropost_path(FactoryGirl.create(:micropost)) }
-        specify { expect(response).to redirect_to(signin_path) }
+        describe "submitting create action" do
+
+          before  { post relationships_path }
+          specify { expect(response).to redirect_to(signin_path) }
+
+        end
 
       end
-
-    end
 
     end
 
