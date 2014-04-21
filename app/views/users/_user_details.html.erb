@@ -1,0 +1,11 @@
+<section><%= render 'follow_form' if signed_in? %></section>
+<h3>
+  <% if @user.sex != "Secret" %>
+    <%= @user.sex %>
+  <% end %>
+  <section id = "addr"><%= @user.city %> &nbsp <%= @user.state %></section>
+  <%= @user.country %> 
+</h3>
+<% if current_user.admin? %>
+  <%= @user.email %> &nbsp <%= @user.phno %>
+<% end %>

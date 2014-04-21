@@ -13,6 +13,14 @@
  */
 
 
+#addr {
+  padding: 3px 0 3px 0;
+}
+
+#misc {
+  padding-left: 180px;
+}
+
 #leftfloat  {
   float: left;
 }
