@@ -82,11 +82,7 @@
 
   <br>  
   
-  <%= label_tag :random_q, @displayed %>
-  <br><br>
-  <%= text_field_tag :random_q, nil, class: "text-field" %>
-  
-  <br>
+  <%= label_tag
 
   <center><%= f.submit "Create account", class: "btn btn-large btn-primary" %></center>
 
