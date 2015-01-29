@@ -98,7 +98,7 @@ footer small  {
 }
 
 footer a  {
-  color: #555;
+  color: #444;
 }
 
 footer a:hover  {
@@ -335,4 +335,28 @@ aside textarea  {
 #about_thanks {
   padding-top: 30px;
   text-align: center;
+}
+
+.align-right  {
+  float: right;
+}
+
+.myimage  {
+  margin: 25px 0 0 20px;
+}
+
+.smp  {
+  padding: 20px 20px 20px 20px;
+  background-color: #ccc;
+  margin-top: 50px;
+  border: 1px dotted black;
+}
+
+.smp > p  {
+  font-weight: bold;
+  font-size: 1.07em;
+  font-family: Georgia;
+  color: #008;
+  padding-top: 10px;
+  text-align: justify;
 }
